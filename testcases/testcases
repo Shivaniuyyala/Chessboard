@@ -1,0 +1,74 @@
+Test Cases:
+1. if piece type is not in (KNIGHT, ROOK, BISHOP, QUEEN, KING) , then it should print this error "Invalid Piece of Chess"
+2. chess piece position (x, y) should be with in range (a to h , 0 to 7), if not it should print this error "Position should in the range (a to h , 0 to 7)"
+3. if we piece type and position is a valid input then it should give the possible positions for the piece.
+example 1: python chessboard.py KNIGHT a3
+output: 
+Possible moves for KNIGHT are :
+b5
+b1
+c4
+c2
+
+example 2: python chessboard.py ROOK g4
+Possible moves for ROOK are :
+g5
+g3
+h4
+f4
+g6
+g2
+e4
+g7
+g1
+d4
+g0
+c4
+b4
+a4
+
+example 3: python chessboard.py QUEEN a2
+Possible moves for QUEEN are :
+a3
+a1
+b2
+a4
+a0
+c2
+a5
+d2
+a6
+e2
+a7
+f2
+g2
+h2
+b3
+b1
+c4
+c0
+d5
+e6
+f7
+
+example 4: python chessboard.py KING a2
+Possible moves for KING are :
+a3
+a1
+b2
+b3
+b1
+
+example 4: python chessboard.py BISHOP a2
+Possible moves for BISHOP are :
+b3
+b1
+c4
+c0
+d5
+e6
+f7
+
+
+
+
