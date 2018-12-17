@@ -1,8 +1,8 @@
 ##################
 """
-
-execute it using below cammand
-python chess.py KNIGHT c2  // python chess.py type_of_pieces current_position
+Author : Shivani
+execute it using the command: python chess.py KNIGHT c2  // python chess.py type_of_pieces current_position
+// types of pieces : KNIGHT, ROOK, BISHOP, QUEEN, KING, PAWN (not implemented code for this)
 
 output: 
 Possible moves for KNIGHT are :
@@ -100,18 +100,21 @@ def getPiece(i):
 		}
 	return switcher.get(i,"Invalid Piece of Chess")
 	 
-
-if __name__=='__main__':
+def main():
 	chess = [[0 for i in range(8)] for i in range(8)]
 
 	pos_dict = { 0:'a', 1:'b', 2:'c', 3:'d', 4:'e', 5:'f', 6:'g', 7:'h'}
 	p = -1
 	q = -1
-
 	try:
 		func = getPiece(sys.argv[1])
+		if func == "Invalid Piece of Chess":
+			print "Invalid Piece of Chess"
+			return 0
+			
 	except:
 		print "Provide valid input for the -piece option: available are KNIGHT, ROOK, BISHOP, QUEEN, KING"
+		return 0
 
 	try:
 		pos = sys.argv[2]
@@ -121,13 +124,16 @@ if __name__=='__main__':
 		print "Provide valid input for position: which should be in the range 8*8 Chess Board: for example 'a5','b6'."
 		
 	if not 0<=p<8 or not 0<=q<8:
-		print "Position should in the range 0 to 7"
+		print "Position should in the range (a to h , 0 to 7)"
+		return 0
 	else:	
 		res = func(chess, p,q)
 		print "Possible moves for %s are :" % sys.argv[1]
 		for each in res:
 			print pos_dict[each[0]]+str(each[1])
 			
+if __name__=='__main__':
+	main()
 			
 		
 	
