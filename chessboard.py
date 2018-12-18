@@ -106,34 +106,35 @@ def main():
 	pos_dict = { 0:'a', 1:'b', 2:'c', 3:'d', 4:'e', 5:'f', 6:'g', 7:'h'}
 	p = -1
 	q = -1
+	if not len(sys.argv) == 3:
+		return "Incorrect number of command line arguments"
 	try:
 		func = getPiece(sys.argv[1])
 		if func == "Invalid Piece of Chess":
-			print "Invalid Piece of Chess"
-			return 0
+			return "Invalid Piece of Chess"
 			
 	except:
-		print "Provide valid input for the -piece option: available are KNIGHT, ROOK, BISHOP, QUEEN, KING"
-		return 0
+		return "Provide valid input for the -piece option: available are KNIGHT, ROOK, BISHOP, QUEEN, KING"
 
 	try:
 		pos = sys.argv[2]
 		p = ord(pos[0])-97
 		q = int(pos[1])
 	except:
-		print "Provide valid input for position: which should be in the range 8*8 Chess Board: for example 'a5','b6'."
+		return "Provide valid input for position: which should be in the range 8*8 Chess Board: for example 'a5','b6'."
 		
 	if not 0<=p<8 or not 0<=q<8:
-		print "Position should in the range (a to h , 0 to 7)"
-		return 0
+		return "Position should in the range (a to h , 0 to 7)"
+		
 	else:	
 		res = func(chess, p,q)
-		print "Possible moves for %s are :" % sys.argv[1]
+		final_res = []
 		for each in res:
-			print pos_dict[each[0]]+str(each[1])
+			final_res.append(pos_dict[each[0]]+str(each[1]))
+		return "Possible moves for %s are %s" % (sys.argv[1], final_res)
 			
 if __name__=='__main__':
-	main()
+	print main()
 			
 		
 	
